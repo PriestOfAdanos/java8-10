@@ -1,0 +1,275 @@
+//zad8.1
+package com.company;
+
+public class Algorytm {
+    int a;
+    int b;
+    public Algorytm(int a,int b){
+        this.a=a;
+        this.b=b;
+    }
+    public static void main(String[] args) {
+
+
+    }
+    void zamiana(){
+        int temp = this.a;
+        this.a=this.b;
+        this.b=temp;
+    }
+}
+
+//zad 8.2
+package com.company;
+
+public class Algorytm {
+
+    public static void main(String[] args) {
+
+
+    }
+    int skalar(int [] scalar1, int [] scalar2){
+        int scalarMatrix [];
+        int sum=0;
+        scalarMatrix = new int [ scalar1.length];
+
+        for (int i=0; i < scalar1.length; i++)
+        {
+            scalarMatrix[i]=scalar1[i]*scalar2[i];
+        }
+        for (int i=0; i < scalar1.length; i++)
+        {
+            sum+=scalarMatrix[i];
+        }
+        return sum;
+    }
+}
+
+
+//zad 8.3
+package com.company;
+
+public class Algorytm {
+
+    public static void main(String[] args) {
+
+
+    }
+    int [] skalarMacierz(int [][] macierz, int [] scalar2){
+        int scalarMatrix [][];
+        int sum=0;
+        scalarMatrix = new int [macierz.length][macierz.length];
+
+        for (int i=0; i < macierz.length; i++)
+        {
+            for (int j=0; j < macierz.length; j++)
+            {
+                scalarMatrix[i][j]=macierz[i][j]*scalar2[i];
+            }
+        }
+        scalar2=new int[scalar2.length];
+        for (int i=0; i < macierz.length; i++)
+        {
+            for (int j=0; j < macierz.length; j++)
+            {
+                scalar2[i]+=scalarMatrix[i][j];
+            }
+        }
+
+        return scalar2;
+    }
+}
+package com.company;
+
+import java.lang.reflect.Array;
+
+public class Main {
+
+    public static void main(String[] args) {
+Algorytm alg = new Algorytm();;
+    int [][] k={{1,2,3},{1,2,3},{1,2,3}};
+    int [] j={1,2,3};
+    for (int i=0; i < j.length; i++) {
+    System.out.print(alg.skalarMacierz(k,j)[i]);
+        System.out.print("\n");
+
+    }}
+}
+
+//zad 8.4
+package com.company;
+
+
+class Algorytm  {
+    static void spiralFill(int m, int n, int a[][]) {
+        int val = 1;
+        int k = 0, l = 0;
+        while (k < m && l < n) {
+            for (int i = l; i < n; ++i) {
+                a[k][i] = val++;
+            }
+            k++;
+            for (int i = k; i < m; ++i) {
+                a[i][n - 1] = val++;
+            }
+            n--; 
+  
+            if (k < m) {
+                for (int i = n - 1; i >= l; --i) {
+                    a[m - 1][i] = val++;
+                }
+                m--;
+            }
+            if (l < n) {
+                for (int i = m - 1; i >= k; --i) {
+                    a[i][l] = val++;
+                }
+                l++;
+            }
+        }
+    }
+} 
+
+package com.company;
+
+import java.lang.reflect.Array;
+
+public class Main {
+
+
+
+        public static void main(String[] args) {
+            Algorytm alg = new Algorytm();
+            int [][] k={{1,2,3},{1,2,3},{1,2,3}};
+            int [] j={1,2,3};
+            int m = 4, n = 4;
+            int a[][] = new int[100][100];
+            alg.spiralFill(m, n, a);
+            for (int i = 0; i < m; i++) {
+                for (int s = 0; s < n; s++) {
+                    System.out.print(a[i][s] + " ");
+                }
+                System.out.println("");
+            }
+        }
+}
+
+//zad8.5
+package com.company;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Main {
+        public static void main(String[] args) {
+            int[][] m = {{1,2,3},{1,2,3}};
+            int [][] l={{1,2},{3,1},{2,3}};
+            int r1 = m.length, c1 = m[0].length;
+            int r2 = l.length, c2 = l[0].length;
+
+
+            int[][] product = new int[r1][c2];
+            for(int i = 0; i < r1; i++) {
+                for (int j = 0; j < c2; j++) {
+                    for (int k = 0; k < c1; k++) {
+                        product[i][j] += m[i][k] * l[k][j];
+                    }
+                }
+            }
+            for(int i = 0; i < product.length; i++) {
+                for (int j = 0; j < product[0].length; j++) {
+                    System.out.print(product[i][j]);
+                    System.out.print(" ");
+                }
+                System.out.print("\n");
+            }
+
+        }
+
+//zad 8.6
+public class Main {
+        public static void main(String[] args) {
+            Punkt3D pkt = new Punkt3D(1,2,3);
+        }
+}
+
+package com.company;
+
+public class Punkt {
+    int x;
+    int y;
+    public Punkt(int x, int y){
+        this.x=x;
+        this.y=y;
+        System.out.print("klasa nadrzędna");
+    }
+}
+
+
+package com.company;
+
+public class Punkt3D extends Punkt {
+    int z;
+    public Punkt3D(int x, int y,int z){
+        super(x,y);
+        this.z=z;
+        System.out.print("klasa podrz");
+    }
+}
+
+//zad 8.7
+package com.company;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Main {
+        public static void main(String[] args) {
+            Kolor kol = new Kolor(100,100,100);
+            Punkt3D pkt = new Punkt3D(1,2,3, kol);
+        }
+}
+
+
+
+package com.company;
+
+public class Kolor {
+    int r,g,b;
+    public Kolor(int r, int g, int b){
+        this.r=r;
+        this.g=g;
+        this.b=b;
+    }
+}
+
+
+package com.company;
+
+public class Punkt {
+    int x;
+    int y;
+    public Punkt(int x, int y){
+        this.x=x;
+        this.y=y;
+        System.out.print("klasa nadrzędna");
+    }
+}
+
+
+package com.company;
+
+public class Punkt3D extends Punkt {
+    int z;
+    Kolor kolor;
+    public Punkt3D(int x, int y,int z, Kolor kolor){
+        super(x,y);
+        this.z=z;
+        this.kolor=kolor;
+        System.out.print("klasa podrz");
+    }
+}
+
+//zad 8.8
+
+
